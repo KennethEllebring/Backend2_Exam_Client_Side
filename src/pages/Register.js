@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import "../styles/Login.scss";
 
-function Login() {
+function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -21,17 +21,16 @@ function Login() {
         },
         credentials: "include",
       });
-      const data = await response.text();
-
-      if (data === "Login successful") {
-        toast.success(`Welcome ${username}`);
-        navigate("/home");
+      const data = await response.json();
+      console.log(data.message);
+      if (data.message === "New User Added") {
+        toast.success(data.message);
+        navigate("/");
         return;
       } else {
-        toast.error(data);
+        toast.error(data.message);
+        return;
       }
-    } else {
-      toast.error("Password does not match");
     }
   };
 
@@ -70,4 +69,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
