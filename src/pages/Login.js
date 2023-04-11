@@ -55,7 +55,7 @@ function Login() {
         </form>
         <div className="pageSwap">
           <Link to="/register">Register</Link>
-          <Link to="/login">Log in</Link>
+          <Link to="/">Log in</Link>
         </div>
       </div>
     </div>
