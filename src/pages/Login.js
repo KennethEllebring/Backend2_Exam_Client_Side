@@ -6,6 +6,7 @@ import "../styles/Login.scss";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [requirementsMet, setRequirementsMet] = useState(false); // add state variable
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,16 +31,25 @@ function Login() {
     }
   };
 
+  const handleInputChange = (e) => {
+    setRequirementsMet(e.target.form.checkValidity());
+    if (e.target.name === "username") {
+      setUsername(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    }
+  };
+
   return (
     <div className="login">
       <div className="login-wrapper">
         <h2>Log in</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Username</label>
-          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" placeholder="Username" minLength={4} maxLength={16} required name="username" value={username} onChange={handleInputChange} />
           <label>Password</label>
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button className="login-button" onClick={handleSubmit}>
+          <input type="password" placeholder="Password" minLength={6} maxLength={36} required name="password" value={password} onChange={handleInputChange} />
+          <button className="login-button" disabled={!requirementsMet}>
             Login
           </button>
         </form>
