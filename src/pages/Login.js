@@ -20,14 +20,14 @@ function Login() {
       },
       credentials: "include",
     });
-    const data = await response.text();
+    const data = await response.json();
 
-    if (data === "Login successful") {
+    if (data.message === "Login successful") {
       toast.success(`Welcome ${username}`);
       navigate("/home");
       return;
     } else {
-      toast.error(data);
+      toast.error(data.message);
     }
   };
 
