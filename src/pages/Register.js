@@ -1,5 +1,6 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import { useAuth } from '../context/AuthContext';
 import {toast} from "react-toastify";
 import "../styles/Register.scss";
 
@@ -9,6 +10,14 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [requirementsMet, setRequirementsMet] = useState(false); // add state variable
   const navigate = useNavigate();
+  const { loggedIn } = useAuth();
+
+  //Prevents users from visiting /register while logged in
+  useEffect(() => {
+    if(loggedIn){
+      navigate('/feed')
+    }
+  }, [loggedIn, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
