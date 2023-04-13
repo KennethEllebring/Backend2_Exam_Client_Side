@@ -1,6 +1,6 @@
 // Dependencies
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {ToastContainer} from 'react-toastify';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Routes
@@ -9,6 +9,8 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Feed from './pages/Feed';
 import NotFound from './pages/NotFound';
+import ProtectedRoutes from './components/ProtectedRoutes'
+import Layout from './pages/Layout'
 
 // stylesheet
 import './styles/App.scss';
@@ -19,11 +21,16 @@ function App() {
       <div className='App'>
         <ToastContainer position='top-center' />
         <Routes>
-          <Route exact path='/' element={<Login />} />
-          <Route exact path='/register' element={<Register />} />
-          <Route exact path='/profile' element={<Profile />} />
-          <Route exact path='/feed' element={<Feed />} />
-          <Route exact path='*' element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/* Feed & Profile is only accessible if you are logged in. */}
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/feed" element={<Feed />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
