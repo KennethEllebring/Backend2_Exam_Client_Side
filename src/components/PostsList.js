@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-const GetAllPosts = () => {
+const PostsList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const GetAllPosts = () => {
   );
 };
 
-export default GetAllPosts;
+export default PostsList;

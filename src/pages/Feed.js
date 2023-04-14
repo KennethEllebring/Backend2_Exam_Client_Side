@@ -1,5 +1,5 @@
 import CreatePost from '../components/CreatePost';
-import GetAllPosts from '../components/GetAllPosts';
+import PostsList from '../components/PostsList';
 import { useAuth } from '../context/AuthContext';
 import '../styles/Feed.scss';
 
@@ -29,7 +29,7 @@ const Feed = () => {
       <p>Logged in as: {user.username}</p>
       <h1>Social media app Feed</h1>
       <CreatePost />
-      <GetAllPosts />
+      <PostsList />
     </div>
   );
 };
