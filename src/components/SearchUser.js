@@ -11,33 +11,36 @@ function SearchUser() {
   const [showAutocomplete, setShowAutocomplete] = useState(false)
   const autoComplete = useRef(null)
 
-  const closeAutocomplete = (e) => {
-    if(autoComplete.current && showAutocomplete && !autoComplete.current.contains(e.target)){
-      setShowAutocomplete(false)
-    }
-  }
+  
 
   useEffect(() => {
-    document.addEventListener('mousedown', closeAutocomplete)
-
     const fetchUsers = async () => {
       const response = await fetch('http://localhost:5050/users/all', {
         credentials: 'include'
       })
-      if(!response.ok){
+      if (!response.ok) {
         throw new Error('Error fetching users')
       }
       const users = await response.json()
       setUserList(users.users)
     }
     fetchUsers()
+  }, [])
+
+  useEffect(() => {
+    const closeAutocomplete = (e) => {
+      if (autoComplete.current && showAutocomplete && !autoComplete.current.contains(e.target)) {
+        setShowAutocomplete(false)
+      }
+    }
+
+    document.addEventListener('mousedown', closeAutocomplete)
 
     //Cleanup
     return () => {
       document.removeEventListener('mousedown', closeAutocomplete)
-    } 
-
-  }, [])
+    }
+  }, [showAutocomplete])
 
   useEffect(() => {
     if (searchTerm === '') {
@@ -73,9 +76,12 @@ function SearchUser() {
         onChange={handleChange}
         onFocus={() => setShowAutocomplete(true)}
       />
-      <ul className="searchList">
-        {showAutocomplete ? renderedUsers : null}
-      </ul>
+
+      {showAutocomplete && (
+        <ul className="searchList">
+          {renderedUsers}
+        </ul>
+      )}
     </div>
   )
 }
