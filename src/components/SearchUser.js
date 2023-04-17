@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/SearchUser.scss';
 
@@ -9,8 +9,16 @@ function SearchUser() {
   const [searchResult, setSearchResult] = useState([])
   const navigate = useNavigate()
   const [showAutocomplete, setShowAutocomplete] = useState(false)
+  const autoComplete = useRef(null)
+
+  const closeAutocomplete = (e) => {
+    if(autoComplete.current && showAutocomplete && !autoComplete.current.contains(e.target)){
+      setShowAutocomplete(false)
+    }
+  }
 
   useEffect(() => {
+    document.addEventListener('mousedown', closeAutocomplete)
 
     const fetchUsers = async () => {
       const response = await fetch('http://localhost:5050/users/all', {
@@ -23,6 +31,11 @@ function SearchUser() {
       setUserList(users.users)
     }
     fetchUsers()
+
+    //Cleanup
+    return () => {
+      document.removeEventListener('mousedown', closeAutocomplete)
+    } 
 
   }, [])
 
@@ -51,7 +64,7 @@ function SearchUser() {
 
 
   return (
-    <div className="searchArea">
+    <div className="searchArea" ref={autoComplete}>
       <h2>Search for user</h2>
       <input
         type="text"
@@ -59,7 +72,6 @@ function SearchUser() {
         placeholder="Search for users.."
         onChange={handleChange}
         onFocus={() => setShowAutocomplete(true)}
-        onBlur={() => setTimeout(() => setShowAutocomplete(false), 250)}
       />
       <ul className="searchList">
         {showAutocomplete ? renderedUsers : null}
