@@ -5,9 +5,6 @@ import LikeButton from "./LikeButton";
 import CommentButton from "./CommentButton";
 import { useAuth } from "../context/AuthContext";
 
-// FOR TESTING
-import { toast } from "react-toastify";
-
 function Post({ post }) {
   const { body, comments, date, like, userID, _id } = post;
   const { user } = useAuth();
@@ -17,22 +14,15 @@ function Post({ post }) {
   async function deletePost(postID) {
     const confirmBox = window.confirm("Do you Want To Remove Post");
     if (confirmBox) {
-      console.log("id ->", postID);
-
-      const response = await fetch("http://localhost:5050/posts", {
+      await fetch("http://localhost:5050/posts", {
         method: "DELETE",
-        body: JSON.stringify({ id: _id }),
+        body: JSON.stringify({ id: postID }),
         headers: {
           "Content-Type": "application/json",
         },
         credentials: "include",
       });
-
-      const data = await response.json();
-      toast.success(data.message);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      window.location.reload();
     }
   }
 
