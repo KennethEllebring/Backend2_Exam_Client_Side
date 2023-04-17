@@ -3,6 +3,7 @@ import "../styles/Post.scss";
 import { Link } from "react-router-dom";
 import LikeButton from "./LikeButton";
 import CommentButton from "./CommentButton";
+import DeletePostComp from "./DeletePostComp";
 import { useAuth } from "../context/AuthContext";
 
 function Post({ post }) {
@@ -10,21 +11,6 @@ function Post({ post }) {
   const { user } = useAuth();
   const commentCount = comments.length;
   const likeCount = like.length;
-
-  async function deletePost(postID) {
-    const confirmBox = window.confirm("Do you Want To Remove Post");
-    if (confirmBox) {
-      await fetch("http://localhost:5050/posts", {
-        method: "DELETE",
-        body: JSON.stringify({ id: postID }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      window.location.reload();
-    }
-  }
 
   return (
     <div className="post-card">
@@ -36,7 +22,7 @@ function Post({ post }) {
           <div>
             <button
               onClick={() => {
-                deletePost(_id);
+                DeletePostComp(_id);
               }}
             >
               Delete
