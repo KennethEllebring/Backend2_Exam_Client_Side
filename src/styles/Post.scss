@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.post-card{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid grey;
+  width: 90%;
+}
+
+.post-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-title{
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.post-title:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.post-body{
+
+}
+
+.post-stats{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgrey;
+}
+
+.post-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.like-button{
+
+}
+
+.comment-button{
+
+}

@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
+import Post from './Post'
 
-const GetAllPosts = () => {
+const PostsList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -23,13 +24,10 @@ const GetAllPosts = () => {
   }, []);
 
   return (
-    <div className='feed'>
+    <div className='feed' style={{display:'flex', flexDirection:'column', gap:'1rem', width:'500px',maxWidth:'90%', border:'1px solid red', alignItems: 'center'}}>
       {posts.length > 0 ? (
         posts.map((post) => (
-          <div key={post._id} className='post-wrapper'>
-            <h4>@{post.userID}</h4>
-            <p>{post.body}</p>
-          </div>
+          <Post key={post._id} post={post} />
         ))
       ) : (
         <p>No posts found</p>
@@ -38,4 +36,4 @@ const GetAllPosts = () => {
   );
 };
 
-export default GetAllPosts;
+export default PostsList;
