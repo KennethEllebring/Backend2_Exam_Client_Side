@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import FollowButton from './FollowButton';
 import '../styles/SearchUser.scss';
 
 function SearchUser() {
@@ -24,6 +23,7 @@ function SearchUser() {
       setUserList(users.users)
     }
     fetchUsers()
+
   }, [])
 
   useEffect(() => {
@@ -42,9 +42,8 @@ function SearchUser() {
 
   const renderedUsers = searchResult.slice(0, 10).map((user) => {
     return (
-      <li key={user} className="userItem">
-        <p onClick={(() => navigate(`../profile/${user}`))}>{user}</p>
-        <FollowButton user={user} className="followBtn" />
+      <li key={user} className="userItem" onClick={(() => navigate(`../profile/${user}`))}>
+        <p>{user}</p>
       </li>
     )
   })
@@ -60,7 +59,7 @@ function SearchUser() {
         placeholder="Search for users.."
         onChange={handleChange}
         onFocus={() => setShowAutocomplete(true)}
-        onBlur={() => setShowAutocomplete(false)}
+        onBlur={() => setTimeout(() => setShowAutocomplete(false), 250)}
       />
       <ul className="searchList">
         {showAutocomplete ? renderedUsers : null}
