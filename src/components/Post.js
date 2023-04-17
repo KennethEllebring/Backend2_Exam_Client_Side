@@ -20,13 +20,7 @@ function Post({ post }) {
         </Link>
         {userID === user.username ? (
           <div>
-            <button
-              onClick={() => {
-                DeletePostComp(_id);
-              }}
-            >
-              Delete
-            </button>{" "}
+            <DeletePostComp className="delete-button" id={_id} />
             <button>Edit</button>
           </div>
         ) : null}
