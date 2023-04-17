@@ -41,10 +41,10 @@ function SearchUser() {
 
   const renderedUsers = searchResult.slice(0, 10).map((user) => {
     return (
-      <div key={user} className="userItem">
-        <li onClick={(() => navigate(`../profile/${user}`))}>{user}</li>
+      <li key={user} className="userItem">
+        <p onClick={(() => navigate(`../profile/${user}`))}>{user}</p>
         <FollowButton user={user} className="followBtn" />
-      </div>
+      </li>
     )
   })
 
