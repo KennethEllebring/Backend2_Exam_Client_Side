@@ -1,0 +1,29 @@
+.searchArea{
+  position: relative;
+  border: 1px solid red;
+  width: 300px;
+}
+
+.searchInput{
+
+}
+
+.searchList{
+  position: absolute;
+  background-color: lightgrey;
+}
+
+.userItem{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 2px;
+}
+
+.userItem:hover{
+  cursor: pointer;
+}
+
+.followBtn{
+
+}
