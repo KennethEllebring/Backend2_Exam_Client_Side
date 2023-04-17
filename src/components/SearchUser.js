@@ -9,6 +9,7 @@ function SearchUser() {
   const [userList, setUserList] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const navigate = useNavigate()
+  const [showAutocomplete, setShowAutocomplete] = useState(false)
 
   useEffect(() => {
 
@@ -58,9 +59,11 @@ function SearchUser() {
         className="searchInput"
         placeholder="Search for users.."
         onChange={handleChange}
+        onFocus={() => setShowAutocomplete(true)}
+        onBlur={() => setShowAutocomplete(false)}
       />
       <ul className="searchList">
-        {renderedUsers}
+        {showAutocomplete ? renderedUsers : null}
       </ul>
     </div>
   )
