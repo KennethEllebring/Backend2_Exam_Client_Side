@@ -12,7 +12,10 @@ function Post({ post }) {
   const likeCount = like.length;
 
   function deletePost(postID) {
-    console.log("Delete");
+    const confirmBox = window.confirm("Do you Want To Remove Post");
+    if (confirmBox) {
+      console.log("id ->", postID);
+    }
   }
 
   return (
@@ -25,7 +28,7 @@ function Post({ post }) {
           <div>
             <button
               onClick={() => {
-                deletePost();
+                deletePost(_id);
               }}
             >
               Delete
