@@ -11,10 +11,21 @@ function Post({ post }) {
   const commentCount = comments.length;
   const likeCount = like.length;
 
-  function deletePost(postID) {
+  async function deletePost(postID) {
     const confirmBox = window.confirm("Do you Want To Remove Post");
     if (confirmBox) {
       console.log("id ->", postID);
+
+      const response = await fetch("http://localhost:5050/posts", {
+        method: "DELETE",
+        body: JSON.stringify({ id: _id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      const data = await response.json();
     }
   }
 
