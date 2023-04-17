@@ -5,6 +5,9 @@ import LikeButton from "./LikeButton";
 import CommentButton from "./CommentButton";
 import { useAuth } from "../context/AuthContext";
 
+// FOR TESTING
+import { toast } from "react-toastify";
+
 function Post({ post }) {
   const { body, comments, date, like, userID, _id } = post;
   const { user } = useAuth();
@@ -26,6 +29,7 @@ function Post({ post }) {
       });
 
       const data = await response.json();
+      toast.success(data.message);
     }
   }
 
