@@ -1,4 +1,6 @@
-async function DeletePostComp(id) {
+import React from "react";
+
+async function DeletePost(id) {
   const confirmBox = window.confirm("Do you Want To Remove Post");
   if (confirmBox) {
     await fetch("http://localhost:5050/posts", {
@@ -11,6 +13,18 @@ async function DeletePostComp(id) {
     });
     window.location.reload();
   }
+}
+
+function DeletePostComp(params) {
+  return (
+    <button
+      onClick={() => {
+        DeletePost(params.id);
+      }}
+    >
+      Delete
+    </button>
+  );
 }
 
 export default DeletePostComp;
