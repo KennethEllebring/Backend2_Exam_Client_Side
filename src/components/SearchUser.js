@@ -11,20 +11,22 @@ function SearchUser() {
   const [showAutocomplete, setShowAutocomplete] = useState(false)
   const autoComplete = useRef(null)
 
-  
-
   useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch('http://localhost:5050/users/all', {
-        credentials: 'include'
-      })
-      if (!response.ok) {
-        throw new Error('Error fetching users')
+    try {
+      const fetchUsers = async () => {
+        const response = await fetch('http://localhost:5050/users/all', {
+          credentials: 'include'
+        })
+        if (!response.ok) {
+          throw new Error('Error fetching users')
+        }
+        const users = await response.json()
+        setUserList(users.users)
       }
-      const users = await response.json()
-      setUserList(users.users)
+      fetchUsers()
+    } catch (error) {
+      console.error(error)
     }
-    fetchUsers()
   }, [])
 
   useEffect(() => {
@@ -63,8 +65,6 @@ function SearchUser() {
       </li>
     )
   })
-
-
 
   return (
     <div className="searchArea" ref={autoComplete}>
