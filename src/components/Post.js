@@ -30,6 +30,9 @@ function Post({ post }) {
 
       const data = await response.json();
       toast.success(data.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   }
 
