@@ -90,10 +90,10 @@ function Login() {
             </button>
           </div>
         </form>
-        <div className="pageSwap">
-          <Link to="/register">Register</Link>
-          <Link to="/">Log in</Link>
-        </div>
+      </div>
+      <div className="pageSwap">
+        <Link to="/register">Register</Link>
+        <Link to="/">Log in</Link>
       </div>
     </div>
   );
