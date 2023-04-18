@@ -12,14 +12,14 @@
   align-items: center;
 }
 .login .login-wrapper {
-  border: solid green 1px;
+  background: #fff;
+  width: 500px;
+  margin: 65px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
-.login .login-wrapper form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.login .login-wrapper h1 {
+  padding: 25px 25px 0 25px;
 }/*# sourceMappingURL=Login.css.map */
