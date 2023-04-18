@@ -1,8 +1,6 @@
 import {toast} from 'react-toastify';
 
 async function likePost(id) {
-  console.log(id);
-
   try {
     const response = await fetch('http://localhost:5050/posts/like', {
       method: 'PATCH',
