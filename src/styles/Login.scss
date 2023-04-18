@@ -9,7 +9,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  .pageSwap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 1rem;
+  }
   .login-wrapper {
     background: #fff;
     width: 600px;
