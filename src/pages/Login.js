@@ -84,8 +84,13 @@ function Login() {
             {/* </div> */}
           </div>
           <div className="form-button-container">
-            <button className="register-button">Register</button>
-            <button className="login-button" disabled={!requirementsMet}>
+            <Link to="/register" className="action-btn link-btn">
+              Register
+            </Link>
+            <button
+              className="login-button action-btn"
+              disabled={!requirementsMet}
+            >
               Login
             </button>
           </div>
