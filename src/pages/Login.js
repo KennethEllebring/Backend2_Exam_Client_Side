@@ -56,8 +56,6 @@ function Login() {
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-input-container">
-            {/* <div>
-              <label>Username</label> */}
             <input
               type="text"
               placeholder="Username"
@@ -68,9 +66,6 @@ function Login() {
               value={username}
               onChange={handleInputChange}
             />
-            {/* </div>
-            <div>
-              <label>Password</label> */}
             <input
               type="password"
               placeholder="Password"
@@ -81,7 +76,6 @@ function Login() {
               value={password}
               onChange={handleInputChange}
             />
-            {/* </div> */}
           </div>
           <div className="form-button-container">
             <Link to="/register" className="action-btn link-btn">
