@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.login {
+  border: solid black 1px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .login-wrapper {
+  border: solid green 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.login .login-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=Login.css.map */
