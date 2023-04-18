@@ -1,5 +1,6 @@
 import CreatePost from '../components/CreatePost';
 import PostsList from '../components/PostsList';
+import SearchUser from '../components/SearchUser';
 import { useAuth } from '../context/AuthContext';
 import '../styles/Feed.scss';
 
@@ -28,6 +29,7 @@ const Feed = () => {
       <button onClick={handleLogout}>Logout</button>
       <p>Logged in as: {user.username}</p>
       <h1>Social media app Feed</h1>
+      <SearchUser />
       <CreatePost />
       <PostsList />
     </div>
