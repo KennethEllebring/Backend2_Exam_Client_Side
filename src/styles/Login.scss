@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
 }
+
 .login {
   border: solid black 1px;
   background: rgb(2, 0, 36);
@@ -16,13 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .pageSwap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    gap: 1rem;
-  }
+
   .login-wrapper {
     background: #fff;
     width: 600px;
@@ -38,12 +33,14 @@
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       padding: 25px 25px 0 25px;
     }
+
     .form-input-container {
       padding: 4rem;
       padding-top: 3rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+
       input {
         font-size: 2rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -58,9 +55,11 @@
         }
       }
     }
+
     .form-button-container {
       display: flex;
       flex-direction: row;
+
       .link-btn {
         text-align: center;
         text-decoration: none;
@@ -71,6 +70,7 @@
           background-color: rgb(80, 80, 80);
         }
       }
+
       .action-btn {
         width: 100%;
         border: none;
@@ -80,9 +80,11 @@
         transition: all 0.2s;
         cursor: pointer;
       }
+
       .login-button:disabled {
         cursor: not-allowed;
       }
+
       .login-button:enabled {
         background-color: rgb(125, 180, 32);
         color: white;
