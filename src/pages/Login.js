@@ -55,8 +55,9 @@ function Login() {
       <div className="login-wrapper">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Username</label>
+          <div className="form-input-container">
+            {/* <div>
+              <label>Username</label> */}
             <input
               type="text"
               placeholder="Username"
@@ -67,9 +68,9 @@ function Login() {
               value={username}
               onChange={handleInputChange}
             />
-          </div>
-          <div>
-            <label>Password</label>
+            {/* </div>
+            <div>
+              <label>Password</label> */}
             <input
               type="password"
               placeholder="Password"
@@ -80,10 +81,14 @@ function Login() {
               value={password}
               onChange={handleInputChange}
             />
+            {/* </div> */}
           </div>
-          <button className="login-button" disabled={!requirementsMet}>
-            Login
-          </button>
+          <div className="form-button-container">
+            <button className="register-button">Register</button>
+            <button className="login-button" disabled={!requirementsMet}>
+              Login
+            </button>
+          </div>
         </form>
         <div className="pageSwap">
           <Link to="/register">Register</Link>
