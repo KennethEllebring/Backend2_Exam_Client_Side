@@ -27,7 +27,7 @@ function App() {
             {/* Feed & Profile is only accessible if you are logged in. */}
             <Route element={<ProtectedRoutes />}>
               <Route path="/feed" element={<Feed />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/:username" element={<Profile />} />
             </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
