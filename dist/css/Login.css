@@ -48,4 +48,33 @@
 }
 .login .login-wrapper .form-input-container input:focus {
   color: salmon;
+}
+.login .login-wrapper .form-button-container {
+  display: flex;
+  flex-direction: row;
+}
+.login .login-wrapper .form-button-container .link-btn {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(157, 157, 157);
+}
+.login .login-wrapper .form-button-container .link-btn:hover {
+  background-color: rgb(80, 80, 80);
+}
+.login .login-wrapper .form-button-container .action-btn {
+  width: 100%;
+  border: none;
+  padding: 18px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.login .login-wrapper .form-button-container .login-button:disabled {
+  cursor: not-allowed;
+}
+.login .login-wrapper .form-button-container .login-button:enabled {
+  background-color: rgb(125, 180, 32);
+  color: white;
 }/*# sourceMappingURL=Login.css.map */

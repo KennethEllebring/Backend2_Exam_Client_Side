@@ -47,5 +47,34 @@
         }
       }
     }
+    .form-button-container {
+      display: flex;
+      flex-direction: row;
+      .link-btn {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(157, 157, 157);
+        &:hover {
+          background-color: rgb(80, 80, 80);
+        }
+      }
+      .action-btn {
+        width: 100%;
+        border: none;
+        padding: 18px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .login-button:disabled {
+        cursor: not-allowed;
+      }
+      .login-button:enabled {
+        background-color: rgb(125, 180, 32);
+        color: white;
+      }
+    }
   }
 }
