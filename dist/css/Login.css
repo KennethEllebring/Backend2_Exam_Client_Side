@@ -45,7 +45,7 @@
   outline: 0;
 }
 .login .login-wrapper .form-input-container input:focus {
-  color: salmon;
+  color: rgb(74, 86, 92);
 }
 .login .login-wrapper .form-button-container {
   display: flex;
