@@ -5,6 +5,7 @@ import LikeButton from './LikeButton';
 import CommentButton from './CommentButton';
 import DeletePostComp from './DeletePostComp';
 import {useAuth} from '../context/AuthContext';
+import EditPostModal from './EditPostModal';
 
 function Post({post}) {
   const {body, comments, date, like, userID, _id} = post;
@@ -21,7 +22,7 @@ function Post({post}) {
         {userID === user.username ? (
           <div>
             <DeletePostComp className='delete-button' id={_id} />
-            <button>Edit</button>
+            <EditPostModal post={post}/>
           </div>
         ) : null}
       </div>
