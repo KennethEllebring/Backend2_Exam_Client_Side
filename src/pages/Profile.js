@@ -56,7 +56,7 @@ const Profile = () => {
       <Link to="../feed">Back to feed</Link>
       <div className="profile-header">
         <h1>@{username}</h1>
-        <FollowButton user={user}/>
+        <FollowButton profile={user}/>
         <p>Following:  {user.following.length}</p>
       </div>
       {posts.length ? renderedPosts : <p>This user has no posts yet</p>}

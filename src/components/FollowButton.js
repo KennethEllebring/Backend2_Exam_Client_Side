@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 function FollowButton({ profile }) {
 
   const { user } = useAuth();
-  const [isFollowing, setIsFollowing] = useState(false)
+  const [isFollowing, setIsFollowing] = useState(null)
 
   const checkLogin = async () => {
     try {
@@ -21,12 +21,42 @@ function FollowButton({ profile }) {
     }
   }
 
-  const handleUnfollow = () => {
-    console.log('unfollowed')
+  const handleUnfollow = async () => {
+    try {
+      const response = await fetch('http://localhost:5050/users/unfollow', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({username: profile.username})
+      })
+      if(response.ok){
+        setIsFollowing(false)
+        console.log('unfollowed')
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 
-  const handleFollow = () => {
-    console.log('followed')
+  const handleFollow = async () => {
+    try {
+      const response = await fetch('http://localhost:5050/users/follow', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({username: profile.username})
+      })
+      if(response.ok){
+        setIsFollowing(true)
+        console.log('followed')
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   useEffect(() => {
