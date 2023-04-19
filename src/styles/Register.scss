@@ -56,6 +56,17 @@
       display: flex;
       flex-direction: row;
 
+      .link-btn {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(157, 157, 157);
+        border-radius: 0px 0px 0px 5px;
+        &:hover {
+          background-color: rgb(80, 80, 80);
+        }
+      }
+
       .action-btn {
         width: 100%;
         border: none;
