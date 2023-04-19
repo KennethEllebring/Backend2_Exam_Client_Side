@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 function FollowButton({ profile }) {
 
   const { user } = useAuth();
-  const [isFollowing, setIsFollowing] = useState(null)
+  const [isFollowing, setIsFollowing] = useState(false)
 
   const checkLogin = async () => {
     try {
@@ -20,7 +20,6 @@ function FollowButton({ profile }) {
       console.error(error)
     }
   }
-
 
   const handleFollow = async (action, state) => {
     try {
