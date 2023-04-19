@@ -62,7 +62,7 @@ function Register() {
           <div className="form-input-container">
             <input
               type="text"
-              placeholder="Username"
+              placeholder="New Username"
               minLength={4}
               maxLength={16}
               required
@@ -72,7 +72,7 @@ function Register() {
             />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="New Password"
               minLength={6}
               maxLength={36}
               required
