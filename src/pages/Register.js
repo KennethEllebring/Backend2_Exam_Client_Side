@@ -1,7 +1,7 @@
-import {useState, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import { useAuth } from '../context/AuthContext';
-import {toast} from "react-toastify";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 import "../styles/Register.scss";
 
 function Register() {
@@ -14,32 +14,32 @@ function Register() {
 
   //Prevents users from visiting /register while logged in
   useEffect(() => {
-    if(loggedIn){
-      navigate('/feed')
+    if (loggedIn) {
+      navigate("/feed");
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (confirmPassword === password) {
-      const response = await fetch("http://localhost:5050/auth/register", {
-        method: "POST",
-        body: JSON.stringify({username, password, confirmPassword}),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log(data.message);
-      if (data.message === "New User Added") {
-        toast.success(data.message);
-        navigate("/");
-        return;
-      } else {
-        toast.error(data.message);
-        return;
-      }
+
+    const response = await fetch("http://localhost:5050/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ username, password, confirmPassword }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    if (data.message === "New User Added") {
+      toast.success(data.message);
+      navigate("/");
+      return;
+    } else {
+      toast.error(data.message);
+      return;
     }
   };
 
@@ -60,11 +60,38 @@ function Register() {
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <label>Username</label>
-          <input type="text" placeholder="Username" minLength={4} maxLength={16} required name="username" value={username} onChange={handleInputChange} />
+          <input
+            type="text"
+            placeholder="Username"
+            minLength={4}
+            maxLength={16}
+            required
+            name="username"
+            value={username}
+            onChange={handleInputChange}
+          />
           <label>Password</label>
-          <input type="password" placeholder="Password" minLength={6} maxLength={36} required name="password" value={password} onChange={handleInputChange} />
+          <input
+            type="password"
+            placeholder="Password"
+            minLength={6}
+            maxLength={36}
+            required
+            name="password"
+            value={password}
+            onChange={handleInputChange}
+          />
           <label>Confirm Password</label>
-          <input type="password" placeholder="Confirm password" minLength={6} maxLength={36} required name="confirmPassword" value={confirmPassword} onChange={handleInputChange} />
+          <input
+            type="password"
+            placeholder="Confirm password"
+            minLength={6}
+            maxLength={36}
+            required
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={handleInputChange}
+          />
           <button className="register-button" disabled={!requirementsMet}>
             register
           </button>
