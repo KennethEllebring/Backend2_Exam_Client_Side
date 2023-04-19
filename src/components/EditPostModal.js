@@ -27,34 +27,30 @@ function EditPostModal ( { post } ) {
     };
 
     return (
-
         <>
-            <button onClick={toggleModal}>Edit</button>
+         <button onClick={toggleModal}>Edit</button>
 
-            {
-                showModal && 
-                <div className="modal-overlay">
-                    <div className="modal">
-                        <div className="modal-header">
-                            <h3>Edit post</h3>
-                            <button onClick={toggleModal}>X</button>
-                        </div>
-            
-                        <form>
-                            <input
-                                type="text"
-                                placeholder={postBody}
-                                value={postBody}
-                                onChange={(e) => setPostBody(e.target.value)}
-                            />
-
-                            <button onClick={editPost}>Save</button>
-                        </form>
-                    </div>
+         {showModal && 
+            <div className="modal-overlay">
+              <div className="modal">
+                <div className="modal-header">
+                    <h3>Edit post</h3>
+                    <button onClick={toggleModal}>X</button>
                 </div>
-            }
+    
+                <form>
+                    <input
+                        type="text"
+                        placeholder={postBody}
+                        value={postBody}
+                        onChange={(e) => setPostBody(e.target.value)}
+                    />
+                    
+                    <button onClick={editPost}>Save</button>
+                </form>
+              </div>
+            </div>}
         </>
-        
     )
 };
 
