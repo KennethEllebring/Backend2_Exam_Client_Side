@@ -21,25 +21,25 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (confirmPassword === password) {
-      const response = await fetch("http://localhost:5050/auth/register", {
-        method: "POST",
-        body: JSON.stringify({ username, password, confirmPassword }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log(data.message);
-      if (data.message === "New User Added") {
-        toast.success(data.message);
-        navigate("/");
-        return;
-      } else {
-        toast.error(data.message);
-        return;
-      }
+
+    const response = await fetch("http://localhost:5050/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ username, password, confirmPassword }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    if (data.message === "New User Added") {
+      toast.success(data.message);
+      navigate("/");
+      return;
+    } else {
+      toast.error(data.message);
+      return;
     }
   };
 
