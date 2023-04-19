@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { toast } from "react-toastify";
 
 function EditPostModal ( { post } ) {
     const [showModal, setShowModal] = useState(false);
