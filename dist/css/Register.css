@@ -4,14 +4,10 @@
   margin: 0;
 }
 
-.pageSwap {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .register {
   border: solid black 1px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(171, 100, 32) 0%, rgb(86, 152, 205) 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
