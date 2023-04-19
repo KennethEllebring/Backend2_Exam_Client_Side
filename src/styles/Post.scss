@@ -76,9 +76,12 @@
         // Set button styles
         // ...
       }
+    }
 
-      // Add any other styles for modal content elements
-      // ...
+    // Edit Post Modal
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
