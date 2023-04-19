@@ -16,4 +16,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.register .register-wrapper {
+  background: #fff;
+  width: 600px;
+  margin: 65px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+.register .register-wrapper h1 {
+  font-size: 2.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 25px 25px 0 25px;
 }/*# sourceMappingURL=Register.css.map */
