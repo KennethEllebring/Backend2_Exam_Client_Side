@@ -52,5 +52,27 @@
         }
       }
     }
+    .form-button-container {
+      display: flex;
+      flex-direction: row;
+
+      .action-btn {
+        width: 100%;
+        border: none;
+        padding: 18px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .register-button:disabled {
+        cursor: not-allowed;
+      }
+
+      .register-button:enabled {
+        background-color: rgb(125, 180, 32);
+        color: white;
+      }
+    }
   }
 }
