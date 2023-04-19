@@ -21,28 +21,10 @@ function FollowButton({ profile }) {
     }
   }
 
-  const handleUnfollow = async () => {
-    try {
-      const response = await fetch('http://localhost:5050/users/unfollow', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify({username: profile.username})
-      })
-      if(response.ok){
-        setIsFollowing(false)
-        console.log('unfollowed')
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
-  const handleFollow = async () => {
+  const handleFollow = async (action, state) => {
     try {
-      const response = await fetch('http://localhost:5050/users/follow', {
+      const response = await fetch(`http://localhost:5050/users/${action}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -51,8 +33,7 @@ function FollowButton({ profile }) {
         body: JSON.stringify({username: profile.username})
       })
       if(response.ok){
-        setIsFollowing(true)
-        console.log('followed')
+        setIsFollowing(state)
       }
     } catch (error) {
       console.error(error)
@@ -66,12 +47,12 @@ function FollowButton({ profile }) {
 
   if(isFollowing){
     return(
-      <button onClick={handleUnfollow}>Unfollow</button>
+      <button onClick={() => handleFollow('unfollow', false)}>Unfollow</button>
     )
   }
 
   return (
-    <button onClick={handleFollow}>Follow</button>
+    <button onClick={() => handleFollow('follow', true)}>Follow</button>
   )
 }
 
