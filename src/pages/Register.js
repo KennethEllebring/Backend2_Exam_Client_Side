@@ -1,7 +1,7 @@
-import {useState, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import { useAuth } from '../context/AuthContext';
-import {toast} from "react-toastify";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 import "../styles/Register.scss";
 
 function Register() {
@@ -14,17 +14,17 @@ function Register() {
 
   //Prevents users from visiting /register while logged in
   useEffect(() => {
-    if(loggedIn){
-      navigate('/feed')
+    if (loggedIn) {
+      navigate("/feed");
     }
-  }, [loggedIn, navigate])
+  }, [loggedIn, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (confirmPassword === password) {
       const response = await fetch("http://localhost:5050/auth/register", {
         method: "POST",
-        body: JSON.stringify({username, password, confirmPassword}),
+        body: JSON.stringify({ username, password, confirmPassword }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -57,22 +57,56 @@ function Register() {
   return (
     <div className="register">
       <div className="register-wrapper">
-        <h2>Register</h2>
+        <h1>Register</h1>
         <form onSubmit={handleSubmit}>
-          <label>Username</label>
-          <input type="text" placeholder="Username" minLength={4} maxLength={16} required name="username" value={username} onChange={handleInputChange} />
-          <label>Password</label>
-          <input type="password" placeholder="Password" minLength={6} maxLength={36} required name="password" value={password} onChange={handleInputChange} />
-          <label>Confirm Password</label>
-          <input type="password" placeholder="Confirm password" minLength={6} maxLength={36} required name="confirmPassword" value={confirmPassword} onChange={handleInputChange} />
-          <button className="register-button" disabled={!requirementsMet}>
-            register
-          </button>
+          <div className="form-input-container">
+            <input
+              type="text"
+              placeholder="Username"
+              minLength={4}
+              maxLength={16}
+              required
+              name="username"
+              value={username}
+              onChange={handleInputChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              minLength={6}
+              maxLength={36}
+              required
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              minLength={6}
+              maxLength={36}
+              required
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-button-container">
+            <Link to="/" className="action-btn link-btn">
+              Login
+            </Link>
+            <button
+              className="register-button action-btn"
+              disabled={!requirementsMet}
+            >
+              Register
+            </button>
+          </div>
         </form>
-        <div className="pageSwap">
-          <Link to="/register">Register</Link>
-          <Link to="/">Log in</Link>
-        </div>
+      </div>
+      <div className="pageSwap">
+        <Link to="/register">Register</Link>
+        <Link to="/">Log in</Link>
       </div>
     </div>
   );
