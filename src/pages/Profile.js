@@ -9,7 +9,6 @@ const Profile = () => {
   const [posts, setPosts] = useState([])
   const [user, setUser] = useState({})
   const [loading, setLoading] = useState(true)
-  const [followingCount, setFollowingCount] = useState(null)
   
   const getUser = async () => {
     try {
@@ -21,15 +20,12 @@ const Profile = () => {
       const userData = await results[1].json()
       if(userData.message === 'User not found'){
         setUser(null)
-        throw new Error(userData.message)
-      }
-      if(postData.message === 'No posts were found') {
-        throw new Error(postData.message)
+      } else {
+        setUser(userData)
       }
       const flattenedPosts = postData.flat();
       const sortedPosts = flattenedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
       setPosts(sortedPosts)
-      setUser(userData)
       setLoading(false)
     } catch (error) {
       setLoading(false)
@@ -61,7 +57,7 @@ const Profile = () => {
       <div className="profile-header">
         <h1>@{username}</h1>
         <FollowButton user={user}/>
-        <p>Following: {user.following ? user.following.length : 0}</p>
+        <p>Following:  {user.following.length}</p>
       </div>
       {posts.length ? renderedPosts : <p>This user has no posts yet</p>}
     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 
-function FollowButton() {
+function FollowButton({user}) {
+  console.log(user)
   return (
     <button>Follow</button>
   )
