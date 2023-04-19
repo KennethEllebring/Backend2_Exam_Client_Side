@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.post-card{
+.post-card {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -12,47 +12,76 @@
   width: 90%;
 }
 
-.post-header{
+.post-header {
   display: flex;
   justify-content: space-between;
 }
 
-.post-title{
+.post-title {
   font-weight: bold;
   text-decoration: none;
   color: black;
 }
 
-.post-title:hover{
+.post-title:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.post-body{
-
+.post-body {
 }
 
-.post-stats{
+.post-stats {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid lightgrey;
 }
 
-.post-buttons{
+.post-buttons {
   display: flex;
   justify-content: space-around;
-}
 
-.like-button{
+  width: 100%;
+  button.like-button {
+    display: block;
+    width: 45%;
+  }
+  .comment-button {
+    display: block;
+    width: 45%;
+  }
+  // Example SCSS code for modal-overlay
+  .modal-overlay {
+    // Set the modal to cover the entire screen
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // Set the modal background color and opacity
+    background-color: rgba(0, 0, 0, 0.5);
+    // Center the modal content vertically and horizontally
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-}
+    .modal-content {
+      // Set the modal content background color and padding
+      background-color: #fff;
+      padding: 20px;
+      // Add desired modal content styles
+      // ...
 
-.comment-button{
+      button {
+        // Set button styles
+        // ...
+      }
+    }
 
-}
-
-// Edit Post Modal
-.modal-header {
-  display: flex;
-  justify-content: space-between;
+    // Edit Post Modal
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

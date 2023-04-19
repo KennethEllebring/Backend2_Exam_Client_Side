@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid grey;
+  width: 90%;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-title {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.post-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.post-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgrey;
+}
+
+.post-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.post-buttons button.like-button {
+  display: block;
+  width: 45%;
+}
+.post-buttons .comment-button {
+  display: block;
+  width: 45%;
+}
+.post-buttons .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.post-buttons .modal-overlay .modal-content {
+  background-color: #fff;
+  padding: 20px;
+}
+.post-buttons .modal-overlay .modal-header {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=Post.css.map */

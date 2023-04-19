@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../styles/Post.scss';
 import {Link} from 'react-router-dom';
 import LikeButton from './LikeButton';
-import CommentButton from './CommentButton';
+import Comment from './Comment';
 import DeletePostComp from './DeletePostComp';
 import {useAuth} from '../context/AuthContext';
 import EditPostModal from './EditPostModal';
@@ -30,12 +30,12 @@ function Post({post}) {
       <p className='post-body'>{body}</p>
 
       <div className='post-stats'>
-        <p className='like-count'>{likeCount} likes</p>
+        <p className='like-count'>&#128077; {likeCount}</p>
         <p className='comment-count'>{commentCount} comments</p>
       </div>
       <div className='post-buttons'>
-        <LikeButton className='like-button' id={_id} post={[post, user]} />
-        <CommentButton className='comment-button' post={post} />
+        <LikeButton post={[post, user]} />
+        <Comment className='comment-button' post={post} />
       </div>
       <div className='comment-section' style={{display: 'none'}}>
         {/* map through comments and render them here ? */}
