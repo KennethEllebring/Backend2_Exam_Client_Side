@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 function FollowButton({ profile }) {
 
   const { user } = useAuth();
-  const [userFollowing, setUserFollowing] = useState([])
+  const [isFollowing, setIsFollowing] = useState(false)
 
   const checkLogin = async () => {
     try {
@@ -14,7 +14,7 @@ function FollowButton({ profile }) {
       })
       const data = await response.json()
       if (data) {
-        setUserFollowing(data.following)
+        setIsFollowing(data.following.includes(profile.username))
       }
     } catch (error) {
       console.error(error)
@@ -22,16 +22,16 @@ function FollowButton({ profile }) {
 
   }
 
-
   useEffect(() => {
     checkLogin()
   }, [])
 
 
-
-  const isFollowing = userFollowing.includes(profile.username)
-  
-  console.log(isFollowing)
+  if(isFollowing){
+    return(
+      <button>Unfollow</button>
+    )
+  }
 
   return (
     <button>Follow</button>
