@@ -19,7 +19,14 @@ function FollowButton({ profile }) {
     } catch (error) {
       console.error(error)
     }
+  }
 
+  const handleUnfollow = () => {
+    console.log('unfollowed')
+  }
+
+  const handleFollow = () => {
+    console.log('followed')
   }
 
   useEffect(() => {
@@ -29,12 +36,12 @@ function FollowButton({ profile }) {
 
   if(isFollowing){
     return(
-      <button>Unfollow</button>
+      <button onClick={handleUnfollow}>Unfollow</button>
     )
   }
 
   return (
-    <button>Follow</button>
+    <button onClick={handleFollow}>Follow</button>
   )
 }
 
