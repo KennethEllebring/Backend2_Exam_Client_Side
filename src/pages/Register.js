@@ -93,7 +93,7 @@ function Register() {
           </div>
           <div className="form-button-container">
             <Link to="/" className="action-btn link-btn">
-              Login
+              Already A Member?
             </Link>
             <button
               className="register-button action-btn"
@@ -103,10 +103,6 @@ function Register() {
             </button>
           </div>
         </form>
-      </div>
-      <div className="pageSwap">
-        <Link to="/register">Register</Link>
-        <Link to="/">Log in</Link>
       </div>
     </div>
   );
