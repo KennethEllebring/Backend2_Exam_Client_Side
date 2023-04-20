@@ -7,7 +7,7 @@ const Profile = () => {
 
   const { username } = useParams()
   const [posts, setPosts] = useState([])
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   
   const getUser = async () => {
@@ -51,13 +51,17 @@ const Profile = () => {
         <h1>Profile not found</h1>
       </div>
     )
-  } return (
+  }console.log(user) 
+  return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '500px', maxWidth: '90%', border: '1px solid red', alignItems: 'center' }}>
       <Link to="../feed">Back to feed</Link>
       <div className="profile-header">
         <h1>@{username}</h1>
         <FollowButton profile={user}/>
-        <p>Following:  {user.following.length}</p>
+        <p>Following:  {user.following.length - 1}</p>
+        <p>Followers:  {user.followers.length - 1}</p>
+
+
       </div>
       {posts.length ? renderedPosts : <p>This user has no posts yet</p>}
     </div>
