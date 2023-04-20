@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import Post from "../components/Post";
 import FollowButton from "../components/FollowButton";
+import { useAuth } from '../context/AuthContext';
 
 const Profile = () => {
 
@@ -9,6 +10,7 @@ const Profile = () => {
   const [posts, setPosts] = useState([])
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const authContext = useAuth();
 
   const getUser = async () => {
     try {
@@ -57,7 +59,7 @@ const Profile = () => {
       <Link to="../feed">Back to feed</Link>
       <div className="profile-header">
         <h1>@{username}</h1>
-        <FollowButton profile={user} />
+        {authContext.user.username !== user.username ? <FollowButton profile={user} /> : null}
         <p>Following:  {user.following.length - 1}</p>
         <p>Followers:  {user.followers.length - 1}</p>
 
