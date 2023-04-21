@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
+import '../styles/Post.scss';
 
 function Comment({post}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,7 +50,7 @@ function Comment({post}) {
 
   return (
     <>
-      <button className='comment-button' onClick={handleCommentClick}>
+      <button className='main-button' onClick={handleCommentClick}>
         Comment
       </button>
 
