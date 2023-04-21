@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/Post.scss';
 
 async function DeletePost(id) {
   const confirmBox = window.confirm("Do you Want To Remove Post");
@@ -18,6 +19,7 @@ async function DeletePost(id) {
 function DeletePostComp(params) {
   return (
     <button
+      className='delete-button'
       onClick={() => {
         DeletePost(params.id);
       }}
