@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/Post.scss';
 
 function EditPostModal({ post }) {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +28,7 @@ function EditPostModal({ post }) {
 
   return (
     <>
-      <button onClick={toggleModal}>Edit</button>
+      <button className='main-button' onClick={toggleModal}>Edit</button>
 
       {showModal && (
         <div className="modal-overlay">
