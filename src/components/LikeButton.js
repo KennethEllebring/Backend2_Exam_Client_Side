@@ -1,4 +1,5 @@
 import {toast} from 'react-toastify';
+import '../styles/Post.scss'
 
 async function likePost(id) {
   try {
@@ -20,12 +21,12 @@ async function likePost(id) {
 
 function LikeButton({post}) {
   return post[0].like.includes(post[1].username) ? (
-    <button className='like-button' onClick={() => likePost(post[0]._id)}>
+    <button className='like-button main-button' onClick={() => likePost(post[0]._id)}>
       Unlike
     </button>
   ) : (
-    <button className='like-button' onClick={() => likePost(post[0]._id)}>
-      &#128077; Like
+    <button className='like-button main-button' onClick={() => likePost(post[0]._id)}>
+      Like
     </button>
   );
 }
