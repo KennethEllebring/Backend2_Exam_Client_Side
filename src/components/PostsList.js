@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import Post from './Post'
+import '../styles/Post.scss'
 
 const PostsList = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +25,7 @@ const PostsList = () => {
   }, []);
 
   return (
-    <div className='feed' style={{display:'flex', flexDirection:'column', gap:'1rem', width:'500px',maxWidth:'90%', border:'1px solid red', alignItems: 'center'}}>
+    <div className='post-feed'>
       {posts.length > 0 ? (
         posts.map((post) => (
           <Post key={post._id} post={post} />
