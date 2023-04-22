@@ -63,22 +63,21 @@ function Comment({post}) {
             <h4 className='user-post-name'>@{post.userID}</h4>
             <p className='user-post-body'>{post.body}</p>
             <div className='post-stats'>
-              <p className='like-count'>&#128077; {post.like.length}</p>
-              <p className='comment-count'>{post.comments.length} comments</p>
+              <p className='like-count'>{post.like.length === 1 ? `${post.like.length} like` : `${post.like.length} likes`}</p>
+              <p className='comment-count'>{post.comments.length === 1 ? `${post.comments.length} comment` : `${post.comments.length} comments`}</p>
             </div>
-            <h3 className='comment-header'>Comments</h3>
             {comments.map((comment, key) => (
               <div className='comment-card' key={key}>
                 <h4 className='comment-user-name'>@{comment.userID}</h4>
-                <h6 className='comment-date'>{comment.date}</h6>
                 <p className='comment-body'>{comment.comment}</p>
+                <p className='comment-date'>{comment.date}</p>
               </div>
             ))}
 
             <form className='new-comment' onSubmit={handleCommentSubmit}>
-              <input className='new-comment-input' minLength={1} required name='comment' value={newCommentBody} onChange={handleInputChange} placeholder='Type your comment...' />
+              <input className='new-comment-input' minLength={1} required name='comment' value={newCommentBody} onChange={handleInputChange} />
               <button className='new-comment-button' disabled={!requirementsMet}>
-                comment
+                Comment
               </button>
             </form>
           </div>
