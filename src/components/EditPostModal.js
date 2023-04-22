@@ -41,10 +41,10 @@ function EditPostModal({post}) {
             </button>
             <h2 className='edit-post-header'>Edit post</h2>
 
-            <form className='edit-comment'>
-              <textarea className='edit-comment-input' type='text' placeholder={postBody} value={postBody} onChange={(e) => setPostBody(e.target.value)} />
+            <form className='edit-post'>
+              <textarea className='edit-post-input' type='text' placeholder={postBody} value={postBody} onChange={(e) => setPostBody(e.target.value)} />
 
-              <button className='edit-comment-button' onClick={editPost}>
+              <button className='edit-post-button' onClick={editPost}>
                 Edit
               </button>
             </form>
