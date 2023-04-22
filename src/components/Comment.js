@@ -66,14 +66,15 @@ function Comment({post}) {
               <p className='like-count'>{post.like.length === 1 ? `${post.like.length} like` : `${post.like.length} likes`}</p>
               <p className='comment-count'>{post.comments.length === 1 ? `${post.comments.length} comment` : `${post.comments.length} comments`}</p>
             </div>
-            {comments.map((comment, key) => (
-              <div className='comment-card' key={key}>
-                <h4 className='comment-user-name'>@{comment.userID}</h4>
-                <p className='comment-body'>{comment.comment}</p>
-                <p className='comment-date'>{comment.date}</p>
-              </div>
-            ))}
-
+            <div className='comment-card-wrapper'>
+              {comments.map((comment, key) => (
+                <div className='comment-card' key={key}>
+                  <h4 className='comment-user-name'>@{comment.userID}</h4>
+                  <p className='comment-body'>{comment.comment}</p>
+                  <p className='comment-date'>{comment.date}</p>
+                </div>
+              ))}
+            </div>
             <form className='new-comment' onSubmit={handleCommentSubmit}>
               <input className='new-comment-input' minLength={1} required name='comment' value={newCommentBody} onChange={handleInputChange} />
               <button className='new-comment-button' disabled={!requirementsMet}>
