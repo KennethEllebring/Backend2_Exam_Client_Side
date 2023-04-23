@@ -70,8 +70,16 @@ const Profile = () => {
           {authContext.user.username !== user.username ? (
             <FollowButton profile={user} />
           ) : null}
-          <p>Following: {user.following.length - 1}</p>
-          <p>Followers: {user.followers.length - 1}</p>
+          {/* 
+          <img
+            src="https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg"
+            alt="avatar"
+          /> */}
+          <div className="profile-info-container">
+            <p>Following: {user.following.length - 1}</p>
+            <p>Posts: {posts.length}</p>
+            <p>Followers: {user.followers.length - 1}</p>
+          </div>
         </div>
         {posts.length ? renderedPosts : <p>This user has no posts yet</p>}
       </div>
