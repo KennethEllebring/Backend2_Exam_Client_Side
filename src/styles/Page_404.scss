@@ -1,3 +1,17 @@
-h1 {
-  color: red;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+$bg: #211e23;
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  font-family: "Montserrat", sans-serif;
+  background-color: $bg;
+  display: flex;
+  flex-direction: column;
+  min-height: 99vh;
+  justify-content: center;
+  align-items: center;
 }
