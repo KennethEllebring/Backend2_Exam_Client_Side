@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/Page_404.scss";
 
 const NotFound = () => {
   return (
