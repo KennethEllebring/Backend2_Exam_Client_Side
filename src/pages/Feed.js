@@ -1,15 +1,13 @@
 import CreatePost from '../components/CreatePost';
 import PostsList from '../components/PostsList';
 import SearchUser from '../components/SearchUser';
-import { useAuth } from '../context/AuthContext';
+import {useAuth} from '../context/AuthContext';
 import '../styles/Feed.scss';
-
-
+import '../styles/Popup_modal.scss';
 
 const Feed = () => {
-
   //Tillfällig logout knapp och namnbricka
-  const { setLoggedIn, setUser, user } = useAuth();
+  const {setLoggedIn, setUser, user} = useAuth();
   const handleLogout = async () => {
     try {
       const res = await fetch('http://localhost:5050/auth/logout', {
@@ -17,12 +15,12 @@ const Feed = () => {
       });
       if (res.ok) {
         setLoggedIn(false);
-        setUser(null)
+        setUser(null);
       }
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     <div>
