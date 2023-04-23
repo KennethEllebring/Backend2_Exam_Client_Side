@@ -25,14 +25,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 .profile-wrapper .profile-header button {
-  background: blue;
+  background: green;
   border: none;
   padding: 5px 10px;
-  color: whitesmoke;
+  color: white;
   width: 120px;
   border-radius: 5px;
+  letter-spacing: 2px;
   transition: all 0.3s ease-in;
   cursor: pointer;
 }
@@ -43,7 +45,7 @@
   outline: none;
 }
 .profile-wrapper .profile-header .unfollow-btn {
-  background: red;
+  background: rgb(255, 17, 17);
   color: white;
 }
 .profile-wrapper .profile-header .profile-info-container {
