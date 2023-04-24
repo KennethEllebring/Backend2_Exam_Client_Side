@@ -29,7 +29,9 @@ const Profile = () => {
       const userData = await results[1].json();
       if (
         userData.message === "User not found" ||
-        userData.message === "Username should have at least 4 characters"
+        userData.message === "Username should have at least 4 characters" ||
+        userData.message ===
+          '"username" must only contain alpha-numeric characters'
       ) {
         setUser(null);
       } else {
