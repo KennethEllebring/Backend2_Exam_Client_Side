@@ -52,6 +52,7 @@ function Login() {
 
   return (
     <div className="login">
+      <h1>PenFriend</h1>
       <div className="login-wrapper">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
