@@ -26,7 +26,7 @@ const Profile = () => {
       const results = await Promise.all([postPromise, userPromise]);
       const postData = await results[0].json();
       const userData = await results[1].json();
-      if (userData.message === "User not found") {
+      if (userData.message === "User not found" || userData.message === "Username should have at least 4 characters") {
         setUser(null);
       } else {
         setUser(userData);
