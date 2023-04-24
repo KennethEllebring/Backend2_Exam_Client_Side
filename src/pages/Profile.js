@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
 import FollowButton from "../components/FollowButton";
@@ -11,6 +11,7 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const authContext = useAuth();
+  const navigate = useNavigate();
 
   const getUser = async () => {
     try {
@@ -26,7 +27,10 @@ const Profile = () => {
       const results = await Promise.all([postPromise, userPromise]);
       const postData = await results[0].json();
       const userData = await results[1].json();
-      if (userData.message === "User not found" || userData.message === "Username should have at least 4 characters") {
+      if (
+        userData.message === "User not found" ||
+        userData.message === "Username should have at least 4 characters"
+      ) {
         setUser(null);
       } else {
         setUser(userData);
@@ -53,13 +57,9 @@ const Profile = () => {
   if (loading) return null;
 
   if (user === null) {
-    return (
-      <div>
-        <Link to="../feed">Back to feed</Link>
-        <h1>Profile not found</h1>
-      </div>
-    );
+    return navigate("/NotFound");
   }
+
   return (
     <div className="profile-main-container">
       <h1 className="site-header">
