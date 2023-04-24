@@ -56,6 +56,7 @@ function Register() {
 
   return (
     <div className="register">
+      <h1>PenFriend</h1>
       <div className="register-wrapper">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
