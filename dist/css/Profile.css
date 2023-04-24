@@ -4,6 +4,16 @@
   margin: 0;
 }
 
+.site-header {
+  position: fixed;
+  top: 1rem;
+  left: 5rem;
+}
+.site-header .header-link {
+  color: white;
+  text-decoration: none;
+}
+
 .profile-main-container {
   background-color: #211e23;
   min-width: 100vw;
@@ -20,6 +30,7 @@
   width: 500px;
   max-width: 90%;
   align-items: center;
+  margin-top: 2.5rem;
 }
 .profile-wrapper .profile-header {
   display: flex;
