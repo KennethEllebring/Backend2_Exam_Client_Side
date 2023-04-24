@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {toast} from 'react-toastify';
+import '../styles/Feed.scss';
 
 const CreatePost = () => {
   // new post states
