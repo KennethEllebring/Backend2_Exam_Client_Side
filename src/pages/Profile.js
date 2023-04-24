@@ -63,26 +63,24 @@ const Profile = () => {
   console.log(user);
   return (
     <div className="profile-main-container">
-      {/* <h1 className="site-header">PenFriend</h1> */}
+      <h1 className="site-header">
+        <Link to="../feed" className="header-link">
+          PenFriend
+        </Link>
+      </h1>
       <div className="profile-wrapper">
-        <Link to="../feed">Back to feed</Link>
         <div className="profile-header">
           <h1>@{username}</h1>
           {authContext.user.username !== user.username ? (
             <FollowButton profile={user} />
           ) : null}
-          {/* 
-          <img
-            src="https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg"
-            alt="avatar"
-          /> */}
           <div className="profile-info-container">
             <p>Following: {user.following.length - 1}</p>
             <p>Posts: {posts.length}</p>
             <p>Followers: {user.followers.length - 1}</p>
           </div>
         </div>
-        {posts.length ? renderedPosts : <p>This user has no posts yet</p>}
+        {posts.length ? renderedPosts : <p>This user has no posts yet!</p>}
       </div>
     </div>
   );
