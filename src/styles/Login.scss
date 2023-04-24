@@ -23,6 +23,7 @@
   .login-wrapper {
     background: #3D3D4C;
     width: 500px;
+    max-width: 95%;
     margin: 0px auto 65px auto;
     display: flex;
     flex-direction: column;
@@ -90,10 +91,12 @@
       }
 
       .login-button:disabled {
+        border-radius: 0px 0px 5px 0px;
         cursor: not-allowed;
       }
 
       .login-button:enabled {
+        border-radius: 0px 0px 5px 0px;
         background-color: rgb(125, 180, 32);
         color: white;
 
