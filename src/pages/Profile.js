@@ -60,7 +60,6 @@ const Profile = () => {
       </div>
     );
   }
-  console.log(user);
   return (
     <div className="profile-main-container">
       <h1 className="site-header">
