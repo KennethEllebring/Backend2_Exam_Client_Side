@@ -63,6 +63,7 @@ const Profile = () => {
   console.log(user);
   return (
     <div className="profile-main-container">
+      {/* <h1 className="site-header">PenFriend</h1> */}
       <div className="profile-wrapper">
         <Link to="../feed">Back to feed</Link>
         <div className="profile-header">

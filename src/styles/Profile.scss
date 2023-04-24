@@ -7,7 +7,6 @@ $bg: #211e23;
 }
 
 .profile-main-container {
-  //   border: solid orange 5px;
   background-color: $bg;
   min-width: 100vw;
   min-height: 100vh;
@@ -17,8 +16,6 @@ $bg: #211e23;
 }
 
 .profile-wrapper {
-  //   border: 1px solid red;
-  //   background-color: white;
   display: flex;
   flex-direction: column;
   gap: 1rem;
