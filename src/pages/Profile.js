@@ -69,6 +69,7 @@ const Profile = () => {
           PenFriend
         </Link>
       </h1>
+      <aside className="aside">SideBar Here!</aside>
       <div className="profile-wrapper">
         <div className="profile-header">
           <h1>@{username}</h1>
@@ -85,6 +86,7 @@ const Profile = () => {
           {posts.length ? renderedPosts : <p>This user has no posts yet!</p>}
         </div>
       </div>
+      <div className="filler-div"></div>
     </div>
   );
 };
