@@ -36,13 +36,15 @@ const CreatePost = () => {
   };
 
   return (
-    <form className='new-post' onSubmit={handleCreateNewPost}>
-      <h3>New post</h3>
-      <input type='text' minLength={1} maxLength={1000} required name='post' value={body} onChange={handleInputChange} />
-      <button className='post-button' disabled={!requirementsMet}>
-        Post
-      </button>
-    </form>
+    <div className='create-post-wrapper'>
+      <form className='create-post' onSubmit={handleCreateNewPost}>
+        <h2 className='new-post-header'>New post</h2>
+        <input type='text' className='create-post-input' minLength={1} maxLength={1000} required name='post' value={body} onChange={handleInputChange} />
+        <button className='create-post-button' disabled={!requirementsMet}>
+          Post
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -41,7 +41,9 @@ const Feed = () => {
 
         <div className='feed-main-window'>
           <CreatePost />
-          <PostsList />
+          <div className='feed-main-window-scroll'>
+            <PostsList />
+          </div>
         </div>
       </div>
     </>
