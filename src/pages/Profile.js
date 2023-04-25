@@ -71,9 +71,11 @@ const Profile = () => {
           PenFriend
         </Link>
       </h1>
+
       <aside className="aside">
-        <Sidebar />
+          <Sidebar />
       </aside>
+
       <div className="profile-wrapper">
         <div className="profile-header">
           <h1>@{username}</h1>
