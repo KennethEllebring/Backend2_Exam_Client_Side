@@ -67,7 +67,7 @@ function SearchUser() {
 
   return (
     <div className='searchArea' ref={autoComplete}>
-      <input type='text' className='searchInput' placeholder='Search for users..' onChange={handleChange} onFocus={() => setShowAutocomplete(true)} />
+      <input type='text' className='searchInput' placeholder='Search for users...' onChange={handleChange} onFocus={() => setShowAutocomplete(true)} />
 
       {showAutocomplete && <ul className='searchList'>{renderedUsers}</ul>}
     </div>
