@@ -16,7 +16,7 @@ $bg: #211e23;
 }
 .profile-main-container {
   background-color: $bg;
-  min-width: 99vw;
+  min-width: calc(100vw - (100vw - 100%));
   height: 100vh;
   display: flex;
   flex-direction: row;

@@ -16,7 +16,7 @@
 
 .profile-main-container {
   background-color: #211e23;
-  min-width: 99vw;
+  min-width: calc(100vw - (100vw - 100%));
   height: 100vh;
   display: flex;
   flex-direction: row;
