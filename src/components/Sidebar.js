@@ -1,16 +1,12 @@
 import SearchUser from "./SearchUser";
 import { Link } from 'react-router-dom';
-import {useAuth} from '../context/AuthContext';
-import { useEffect } from "react";
-import { useState } from "react";
+import { useAuth } from '../context/AuthContext';
+import { useEffect, useState } from "react";
 import '../styles/Sidebar.scss';
 
-
 function Sidebar () {
-
     const {setLoggedIn, setUser, user} = useAuth();
     const [followers, setFollowers] = useState(0);
-
 
     const handleLogout = async () => {
         try {
@@ -42,29 +38,27 @@ function Sidebar () {
     }, [])
 
     return (
-        
+        <div className="sidebar">
+            <SearchUser />
 
-            <div className="sidebar">
-                <SearchUser />
-
-                <div className="nav-links">
-                    <Link className="nav-link" to="/">Home</Link>
-                    <Link className="nav-link" to={`/profile/${user.username}`}>Profile</Link>
-                </div>
-                
-                <div className="user-info">
-                    <Link to={`/profile/${user.username}`}>
-                        <h3>@{user.username}</h3>
-                    </Link>
-
-                    <p>
-                        {followers.length} {followers.length === 1 ? 'follower' : 'followers'}
-                    </p>
-
-                    <button onClick={handleLogout}>Log Out</button>
-                </div>
+            <div className="nav-links">
+                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link" to={`/profile/${user.username}`}>Profile</Link>
             </div>
-    )
-}
+            
+            <div className="user-info">
+                <Link to={`/profile/${user.username}`}>
+                    <h3>@{user.username}</h3>
+                </Link>
+
+                <p>
+                    {followers.length} {followers.length === 1 ? 'follower' : 'followers'}
+                </p>
+
+                <button onClick={handleLogout}>Log Out</button>
+            </div>
+        </div>
+    );
+};
 
 export default Sidebar;
