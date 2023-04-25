@@ -21,16 +21,19 @@ $button: #50A0CD;
         color: #ffffff;
         font-size: 1rem;
       }
+
       .searchList {
         position: absolute;
         background-color: $inputBg;
       }
+
       .userItem {
         display: flex;
         position: relative;
         justify-content: space-between;
         padding: 5px;
         width: 200px;
+
         &:hover {
           background-color: $button;
           color: white;
@@ -81,5 +84,4 @@ $button: #50A0CD;
             }
           }
     }
-
 }
