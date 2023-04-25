@@ -28,7 +28,7 @@ body {
   color: #ffffff;
   display: flex;
   justify-content: center;
-  
+
   .feed-inner-wrapper {
     align-items: center;
     justify-content: center;
@@ -38,12 +38,12 @@ body {
   }
   .feed-main-window {
     margin-right: 200px;
+    margin-left: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .feed-main-window-scroll {
-      margin-left: 65px;
       height: 74vh;
       overflow-y: auto;
       &::-webkit-scrollbar {
@@ -68,6 +68,7 @@ body {
   display: flex;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  margin-right: 8px;
   padding: 4px 16px;
   border-radius: 10px;
   background-color: #3d3d4c;
@@ -80,7 +81,7 @@ body {
     }
     .create-post-input {
       border: none;
-      width: 410px;
+      width: 418px;
       height: 3rem;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
