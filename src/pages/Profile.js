@@ -64,7 +64,6 @@ const Profile = () => {
   }
 
   return (
-    
     <div className="profile-main-container">
       <h1 className="site-header">
         <Link to="../feed" className="header-link">
