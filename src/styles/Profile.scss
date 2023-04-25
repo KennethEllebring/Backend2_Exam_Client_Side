@@ -23,12 +23,12 @@ $bg: #211e23;
   justify-content: center;
   color: rgb(255, 255, 255);
   .aside {
-    // Aside for Sidebar
     justify-self: flex-start;
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    padding: 30px;
   }
   .filler-div {
     flex: 1;
