@@ -26,6 +26,9 @@
 .profile-main-container .aside {
   justify-self: flex-start;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .profile-main-container .filler-div {
   flex: 1;
