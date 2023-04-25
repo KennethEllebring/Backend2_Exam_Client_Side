@@ -4,6 +4,7 @@ import Post from "../components/Post";
 import FollowButton from "../components/FollowButton";
 import { useAuth } from "../context/AuthContext";
 import "../styles/Profile.scss";
+import Sidebar from "../components/Sidebar";
 
 const Profile = () => {
   const { username } = useParams();
@@ -69,7 +70,11 @@ const Profile = () => {
           PenFriend
         </Link>
       </h1>
-      <aside className="aside">SideBar Here!</aside>
+
+      <aside className="aside">
+          <Sidebar />
+      </aside>
+
       <div className="profile-wrapper">
         <div className="profile-header">
           <h1>@{username}</h1>
