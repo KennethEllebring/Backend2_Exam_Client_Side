@@ -81,7 +81,9 @@ const Profile = () => {
             <p>Followers: {user.followers.length - 1}</p>
           </div>
         </div>
-        {posts.length ? renderedPosts : <p>This user has no posts yet!</p>}
+        <div className="post-container">
+          {posts.length ? renderedPosts : <p>This user has no posts yet!</p>}
+        </div>
       </div>
     </div>
   );
