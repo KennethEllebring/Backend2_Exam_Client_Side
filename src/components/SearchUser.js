@@ -1,9 +1,10 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {useNavigate} from 'react-router-dom';
-import '../styles/Feed.scss';
+import { ApiLink } from "../ApiLink";
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/Feed.scss";
 
 function SearchUser() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [userList, setUserList] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const navigate = useNavigate();
@@ -13,11 +14,11 @@ function SearchUser() {
   useEffect(() => {
     try {
       const fetchUsers = async () => {
-        const response = await fetch('http://localhost:5050/users/all', {
-          credentials: 'include',
+        const response = await fetch(`${ApiLink}/users/all`, {
+          credentials: "include",
         });
         if (!response.ok) {
-          throw new Error('Error fetching users');
+          throw new Error("Error fetching users");
         }
         const users = await response.json();
         setUserList(users.users);
@@ -30,21 +31,25 @@ function SearchUser() {
 
   useEffect(() => {
     const closeAutocomplete = (e) => {
-      if (autoComplete.current && showAutocomplete && !autoComplete.current.contains(e.target)) {
+      if (
+        autoComplete.current &&
+        showAutocomplete &&
+        !autoComplete.current.contains(e.target)
+      ) {
         setShowAutocomplete(false);
       }
     };
 
-    document.addEventListener('mousedown', closeAutocomplete);
+    document.addEventListener("mousedown", closeAutocomplete);
 
     //Cleanup
     return () => {
-      document.removeEventListener('mousedown', closeAutocomplete);
+      document.removeEventListener("mousedown", closeAutocomplete);
     };
   }, [showAutocomplete]);
 
   useEffect(() => {
-    if (searchTerm === '') {
+    if (searchTerm === "") {
       return setSearchResult([]);
     }
     const result = userList.filter((user) => {
@@ -59,17 +64,27 @@ function SearchUser() {
 
   const renderedUsers = searchResult.slice(0, 10).map((user) => {
     return (
-      <li key={user} className='userItem' onClick={() => navigate(`../profile/${user}`)}>
+      <li
+        key={user}
+        className="userItem"
+        onClick={() => navigate(`../profile/${user}`)}
+      >
         <p>{user}</p>
       </li>
     );
   });
 
   return (
-    <div className='searchArea' ref={autoComplete}>
-      <input type='text' className='searchInput' placeholder='Search for users..' onChange={handleChange} onFocus={() => setShowAutocomplete(true)} />
+    <div className="searchArea" ref={autoComplete}>
+      <input
+        type="text"
+        className="searchInput"
+        placeholder="Search for users.."
+        onChange={handleChange}
+        onFocus={() => setShowAutocomplete(true)}
+      />
 
-      {showAutocomplete && <ul className='searchList'>{renderedUsers}</ul>}
+      {showAutocomplete && <ul className="searchList">{renderedUsers}</ul>}
     </div>
   );
 }

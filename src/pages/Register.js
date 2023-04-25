@@ -1,3 +1,4 @@
+import { ApiLink } from "../ApiLink";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -22,7 +23,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5050/auth/register", {
+    const response = await fetch(`${ApiLink}/auth/register`, {
       method: "POST",
       body: JSON.stringify({ username, password, confirmPassword }),
       headers: {

@@ -1,15 +1,16 @@
-import {toast} from 'react-toastify';
-import '../styles/Post.scss'
+import { ApiLink } from "../ApiLink";
+import { toast } from "react-toastify";
+import "../styles/Post.scss";
 
 async function likePost(id) {
   try {
-    const response = await fetch('http://localhost:5050/posts/like', {
-      method: 'PATCH',
-      body: JSON.stringify({id}),
+    const response = await fetch(`${ApiLink}/posts/like`, {
+      method: "PATCH",
+      body: JSON.stringify({ id }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     });
     const data = await response.json();
     toast.success(data.message);
@@ -19,13 +20,19 @@ async function likePost(id) {
   }
 }
 
-function LikeButton({post}) {
+function LikeButton({ post }) {
   return post[0].like.includes(post[1].username) ? (
-    <button className='like-button main-button' onClick={() => likePost(post[0]._id)}>
+    <button
+      className="like-button main-button"
+      onClick={() => likePost(post[0]._id)}
+    >
       Unlike
     </button>
   ) : (
-    <button className='like-button main-button' onClick={() => likePost(post[0]._id)}>
+    <button
+      className="like-button main-button"
+      onClick={() => likePost(post[0]._id)}
+    >
       Like
     </button>
   );

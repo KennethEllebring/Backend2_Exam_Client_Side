@@ -1,3 +1,4 @@
+import { ApiLink } from "../ApiLink";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -21,7 +22,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5050/auth/login", {
+    const response = await fetch(`${ApiLink}/auth/login`, {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

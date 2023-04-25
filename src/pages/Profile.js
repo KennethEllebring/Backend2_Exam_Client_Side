@@ -1,3 +1,4 @@
+import { ApiLink } from "../ApiLink";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
@@ -15,14 +16,12 @@ const Profile = () => {
 
   const getUser = async () => {
     try {
-      const postPromise = fetch(
-        `http://localhost:5050/posts/all/user/${username}`,
-        { credentials: "include" }
-      );
-      const userPromise = fetch(
-        `http://localhost:5050/users/single/${username}`,
-        { credentials: "include" }
-      );
+      const postPromise = fetch(`${ApiLink}/posts/all/user/${username}`, {
+        credentials: "include",
+      });
+      const userPromise = fetch(`${ApiLink}/users/single/${username}`, {
+        credentials: "include",
+      });
 
       const results = await Promise.all([postPromise, userPromise]);
       const postData = await results[0].json();
