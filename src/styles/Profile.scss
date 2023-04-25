@@ -17,7 +17,7 @@ $bg: #211e23;
 .profile-main-container {
   background-color: $bg;
   min-width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   color: rgb(255, 255, 255);
@@ -63,6 +63,31 @@ $bg: #211e23;
     .profile-info-container {
       display: flex;
       gap: 1rem;
+    }
+  }
+  .post-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #48485a;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #211e23;
+      border-radius: 5px;
+    }
+
+    &:last-child {
+      padding-bottom: 1rem;
     }
   }
 }
