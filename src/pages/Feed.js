@@ -1,10 +1,12 @@
+import { ApiLink } from "../ApiLink";
 import CreatePost from "../components/CreatePost";
 import PostsList from "../components/PostsList";
-import SearchUser from "../components/SearchUser";
 import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 import { useAuth } from "../context/AuthContext";
 import "../styles/Feed.scss";
 import "../styles/Popup_modal.scss";
+import "../styles/Profile.scss";
 
 const Feed = () => {
   //Tillfällig logout knapp och namnbricka
