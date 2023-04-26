@@ -1,12 +1,13 @@
 # Frontend Socialmedia app: PenFriend
 
+[![contributors-shield]][contributors-url]  
 [![react]][react-url] [![css]][css-url]
 
 A School project in HTML/REACT and CSS/SCSS where this is the Frontend Client-Side page where you are able to:
 
 - Register new users
 - Login registerd users
-- Befriend/Follow excisting users
+- Befriend/Follow existing users
 - See Followed users Posts
 - Comment and Like Posts
 - Remove and Edit own Posts
@@ -51,3 +52,5 @@ Happy coding!
 [css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [react]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://legacy.reactjs.org/
+[contributors-shield]: https://img.shields.io/github/contributors/KennethEllebring/Backend2_Exam_Client_Side.svg?style=for-the-badge
+[contributors-url]: https://github.com/KennethEllebring/Backend2_Exam_Client_Side/graphs/contributors
