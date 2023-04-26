@@ -1,9 +1,11 @@
 import CreatePost from '../components/CreatePost';
 import PostsList from '../components/PostsList';
+import {Link} from 'react-router-dom'
 import Sidebar from '../components/Sidebar';
 import {useAuth} from '../context/AuthContext';
 import '../styles/Feed.scss';
 import '../styles/Popup_modal.scss';
+import "../styles/Profile.scss";
 
 const Feed = () => {
   //Tillfällig logout knapp och namnbricka
@@ -23,23 +25,30 @@ const Feed = () => {
   };
 
   return (
-    <>
-      <h1 className='site-header'>PenFriend</h1>
-      
-      <div className='feed-outer-wrapper'>
-        <div className='feed-inner-wrapper'>
-        <Sidebar />
-        </div>
 
-        <div className='feed-main-window'>
+    <div className="profile-main-container">
+      <h1 className="site-header">
+        <Link to="../feed" className="header-link">
+          PenFriend
+        </Link>
+      </h1>
+
+      <aside className="aside">
+          <Sidebar />
+      </aside>
+
+      <div className="profile-wrapper">
+        <div className="profile-header">
           <CreatePost />
-          <div className='feed-main-window-scroll'>
-            <PostsList />
-          </div>
+        </div>
+        <div className="post-container">
+        <PostsList />
         </div>
       </div>
-    </>
+      <div className="filler-div"></div>
+    </div>
   );
 };
 
 export default Feed;
+
