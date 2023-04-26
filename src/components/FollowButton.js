@@ -1,3 +1,4 @@
+import { ApiLink } from "../ApiLink";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
@@ -7,7 +8,7 @@ function FollowButton({ profile }) {
 
   const handleFollow = async (action, state) => {
     try {
-      const response = await fetch(`http://localhost:5050/users/${action}`, {
+      const response = await fetch(`${ApiLink}/users/${action}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

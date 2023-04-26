@@ -1,3 +1,4 @@
+import { ApiLink } from "../ApiLink";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,11 +8,10 @@ import "../styles/Login.scss";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [requirementsMet, setRequirementsMet] = useState(false); // add state variable
+  const [requirementsMet, setRequirementsMet] = useState(false);
   const navigate = useNavigate();
   const { loggedIn, setLoggedIn, setUser } = useAuth();
 
-  //Prevents users from visiting login page while logged in
   useEffect(() => {
     if (loggedIn) {
       navigate("/feed");
@@ -21,7 +21,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5050/auth/login", {
+    const response = await fetch(`${ApiLink}/auth/login`, {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

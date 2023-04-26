@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
+.create-post-wrapper {
+  display: flex;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-right: 8px;
+  padding: 4px 16px;
+  border-radius: 10px;
+  background-color: #3d3d4c;
+}
+.create-post-wrapper form.create-post {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+.create-post-wrapper form.create-post .new-post-header {
+  margin-bottom: 0.3rem;
+}
+.create-post-wrapper form.create-post .create-post-input {
+  border: none;
+  width: 418px;
+  height: 3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  background-color: #48485a;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.create-post-wrapper form.create-post .create-post-button {
+  align-self: flex-end;
+  background-color: #50a0cd;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ffffff;
+  border-radius: 32px;
+  padding: 3px 32px;
+  border: none;
+  font-weight: 700;
+}
+.create-post-wrapper form.create-post .create-post-button:hover {
+  cursor: pointer;
+  background-color: #7fc3eb;
+}
+.create-post-wrapper form.create-post .create-post-button:disabled {
+  color: rgba(255, 255, 255, 0.3019607843);
+  background-color: #37586b;
+}/*# sourceMappingURL=Feed.css.map */
