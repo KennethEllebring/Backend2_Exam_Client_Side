@@ -16,9 +16,8 @@ const PostsList = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Flatten the nested arrays
         const flattenedPosts = data.flat();
-        // Sort the flattened array by date
+
         const sortedPosts = flattenedPosts.sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );

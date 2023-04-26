@@ -1,13 +1,12 @@
 import { ApiLink } from "../ApiLink";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import "../styles/Feed.scss";
+import "../styles/CreatePost.scss";
 
 const CreatePost = () => {
-  // new post states
   const [body, setBody] = useState("");
   const [requirementsMet, setRequirementsMet] = useState(false);
-  // Create new Post
+
   const handleCreateNewPost = async (e) => {
     e.preventDefault();
     try {
@@ -18,7 +17,7 @@ const CreatePost = () => {
           "Content-Type": "application/json",
         },
         credentials: "include",
-      }); // change to correct endpoint
+      });
       const data = await response.json();
       toast.success(data.message);
       setTimeout(() => {
@@ -28,7 +27,7 @@ const CreatePost = () => {
       toast.error(error.message);
     }
   };
-  // Create new post handler, so you can't click post if empty
+
   const handleInputChange = (e) => {
     setRequirementsMet(e.target.form.checkValidity());
     if (e.target.name === "post") {

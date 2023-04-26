@@ -4,12 +4,10 @@ import PostsList from "../components/PostsList";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useAuth } from "../context/AuthContext";
-import "../styles/Feed.scss";
 import "../styles/Popup_modal.scss";
 import "../styles/Profile.scss";
 
 const Feed = () => {
-  //Tillfällig logout knapp och namnbricka
   const { setLoggedIn, setUser, user } = useAuth();
   const handleLogout = async () => {
     try {

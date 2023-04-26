@@ -1,7 +1,6 @@
 import { ApiLink } from "../ApiLink";
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Feed.scss";
 
 function SearchUser() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,7 +41,6 @@ function SearchUser() {
 
     document.addEventListener("mousedown", closeAutocomplete);
 
-    //Cleanup
     return () => {
       document.removeEventListener("mousedown", closeAutocomplete);
     };

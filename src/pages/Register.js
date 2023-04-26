@@ -9,11 +9,10 @@ function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [requirementsMet, setRequirementsMet] = useState(false); // add state variable
+  const [requirementsMet, setRequirementsMet] = useState(false);
   const navigate = useNavigate();
   const { loggedIn } = useAuth();
 
-  //Prevents users from visiting /register while logged in
   useEffect(() => {
     if (loggedIn) {
       navigate("/feed");

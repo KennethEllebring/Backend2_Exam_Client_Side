@@ -8,11 +8,10 @@ import "../styles/Login.scss";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [requirementsMet, setRequirementsMet] = useState(false); // add state variable
+  const [requirementsMet, setRequirementsMet] = useState(false);
   const navigate = useNavigate();
   const { loggedIn, setLoggedIn, setUser } = useAuth();
 
-  //Prevents users from visiting login page while logged in
   useEffect(() => {
     if (loggedIn) {
       navigate("/feed");
