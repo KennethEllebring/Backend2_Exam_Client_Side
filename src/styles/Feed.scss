@@ -112,7 +112,7 @@ body {
     }
   }
 }
-@media (max-width:950px){
+@media (max-width:760px){
 
   h1.site-header {
     display: none;
@@ -125,6 +125,7 @@ body {
     justify-content: center;
     height: auto;
     margin: 0 auto;
+    padding-right: 0;
     width: 100%;
     overflow-x: hidden;
   }

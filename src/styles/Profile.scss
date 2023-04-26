@@ -93,6 +93,7 @@ $bg: #211e23;
     flex-direction: column;
     gap: 1rem;
     overflow-y: auto;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {
       width: 10px;
@@ -114,7 +115,7 @@ $bg: #211e23;
   }
 }
 
-@media (max-width:950px) {
+@media (max-width:760px) {
   .profile-main-container {
     display: flex;
     align-items: center;
