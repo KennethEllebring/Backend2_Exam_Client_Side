@@ -52,7 +52,7 @@ function Sidebar () {
                 </Link>
 
                 <p>
-                    {followers.length} {followers.length === 1 ? 'follower' : 'followers'}
+                    {(followers.length - 1)} {(followers.length - 1) === 1 ? 'follower' : 'followers'}
                 </p>
 
                 <button onClick={handleLogout}>Log Out</button>
