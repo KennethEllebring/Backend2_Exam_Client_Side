@@ -51,7 +51,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [username]);
 
   const renderedPosts = posts.map((post) => {
     return <Post key={post._id} post={post} />;

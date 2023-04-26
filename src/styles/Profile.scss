@@ -5,15 +5,18 @@ $bg: #211e23;
   padding: 0;
   margin: 0;
 }
+
 .site-header {
   position: fixed;
   top: 1rem;
   left: 5rem;
+
   .header-link {
     color: white;
     text-decoration: none;
   }
 }
+
 .profile-main-container {
   background-color: $bg;
   min-width: calc(100vw - (100vw - 100%));
@@ -22,6 +25,7 @@ $bg: #211e23;
   flex-direction: row;
   justify-content: center;
   color: rgb(255, 255, 255);
+
   .aside {
     justify-self: flex-start;
     flex: 1;
@@ -30,16 +34,17 @@ $bg: #211e23;
     align-items: center;
     padding: 30px;
   }
+
   .filler-div {
     flex: 1;
   }
 }
+
 .profile-wrapper {
-  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 90%;
+  max-width: 85%;
   align-items: center;
   margin-top: 2.5rem;
 
@@ -48,6 +53,7 @@ $bg: #211e23;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+
     button {
       background: green;
       border: none;
@@ -67,23 +73,27 @@ $bg: #211e23;
         outline: none;
       }
     }
+
     .unfollow-btn {
       background: rgb(255, 17, 17);
       color: white;
     }
+
     .profile-info-container {
       display: flex;
       gap: 1rem;
     }
   }
+
   .post-container {
-    max-width: 500px;
-    width: 100%;
+    max-width: 100%;
+    width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
     overflow-y: auto;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {
       width: 10px;
@@ -103,4 +113,30 @@ $bg: #211e23;
       padding-bottom: 1rem;
     }
   }
+}
+
+@media (max-width:760px) {
+  .profile-main-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+
+    .aside {
+      padding: 0 0 30px 0;
+    }
+
+    .profile-wrapper {
+      margin-top: 0;
+      max-width: 100%;
+    }
+  }
+
+  .site-header {
+    display: none;
+  }
+
+  
+
+  
 }

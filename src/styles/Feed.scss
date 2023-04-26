@@ -34,11 +34,11 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
+    margin-right: 25px;
     gap: 1rem;
   }
   .feed-main-window {
     margin-right: 200px;
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,3 +112,34 @@ body {
     }
   }
 }
+@media (max-width:760px){
+
+  h1.site-header {
+    display: none;
+  }
+  
+  .feed-outer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0 auto;
+    padding-right: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .feed-inner-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .feed-main-window {
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+}
+
