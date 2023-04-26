@@ -1,0 +1,135 @@
+// Variables
+$text: #FFF;
+$secondaryText: rgba(white, 0.7);
+$lines: rgba(white, 0.2);
+$windowBg: #3D3D4C;
+$inputBg: #48485A;
+$button: #50A0CD;
+
+.sidebar {
+    width: 200px;
+
+    .user-info, .searchInput {
+        background: $windowBg;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .searchInput {
+        border: none;
+        padding: 0.5rem;
+        color: #ffffff;
+        font-size: 1rem;
+      }
+
+      .searchList {
+        position: absolute;
+        background-color: $inputBg;
+      }
+
+      .userItem {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        padding: 5px;
+        width: 200px;
+
+        &:hover {
+          background-color: $button;
+          color: white;
+          cursor: pointer;
+        }
+      }
+
+    .nav-links {
+        margin-top: 10px;
+        padding-left: 3px;
+
+        .nav-link {
+            color: $secondaryText;
+            padding-right: 10px;
+        }
+    }
+
+    .user-info {
+        margin-top: 15px;
+        padding: 15px;
+        color: $text;
+
+        a {
+            color: $text;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            padding-left: 3px;
+        }
+
+        button {
+            background-color: $button;
+            color: $text;
+            border-radius: 32px;
+            padding: 3px 16px;
+            border: none;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #7fc3eb;
+            }
+          }
+    }
+}
+
+
+@media (max-width:760px){
+  .sidebar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    
+    .user-info, .searchInput, .nav-links {
+      display: none;
+    }
+
+    .searchInput {
+      display: block;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+    
+    .nav-links {
+      display: flex;
+      
+      .nav-link {
+        display: inline-block;
+      }
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      height: 80%;
+      background-color: transparent;
+      width: 120px;
+      padding: 0;
+      p, a {
+        display: none;
+      }
+
+      button {
+        display: inline-block;
+        margin-top: 0;
+      }
+    }
+  }
+}

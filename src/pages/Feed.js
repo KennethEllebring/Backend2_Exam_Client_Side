@@ -1,4 +1,3 @@
-import { ApiLink } from "../ApiLink";
 import CreatePost from "../components/CreatePost";
 import PostsList from "../components/PostsList";
 import SearchUser from "../components/SearchUser";
@@ -25,29 +24,27 @@ const Feed = () => {
   };
 
   return (
-    <>
-      <h1 className="site-header">PenFriend</h1>
-      <div className="feed-outer-wrapper">
-        <div className="feed-inner-wrapper">
-          <SearchUser />
-          <div className="feed-user-info">
-            <Link className="feed-username" to={`../profile/${user.username}`}>
-              @{user.username}
-            </Link>
-            <button className="feed-logout-button" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
-        </div>
+    <div className="profile-main-container">
+      <h1 className="site-header">
+        <Link to="../feed" className="header-link">
+          PenFriend
+        </Link>
+      </h1>
 
-        <div className="feed-main-window">
+      <aside className="aside">
+        <Sidebar />
+      </aside>
+
+      <div className="profile-wrapper">
+        <div className="profile-header">
           <CreatePost />
-          <div className="feed-main-window-scroll">
-            <PostsList />
-          </div>
+        </div>
+        <div className="post-container">
+          <PostsList />
         </div>
       </div>
-    </>
+      <div className="filler-div"></div>
+    </div>
   );
 };
 

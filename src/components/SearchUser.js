@@ -79,7 +79,7 @@ function SearchUser() {
       <input
         type="text"
         className="searchInput"
-        placeholder="Search for users.."
+        placeholder="Search for users..."
         onChange={handleChange}
         onFocus={() => setShowAutocomplete(true)}
       />
