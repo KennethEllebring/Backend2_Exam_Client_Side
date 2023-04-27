@@ -46,7 +46,6 @@ function Comment({post}) {
       const data = await response.json();
       toast.success(data.message);
       navigate('/');
-      // window.location.reload();
     } catch (error) {
       toast.error(error.message);
     }
